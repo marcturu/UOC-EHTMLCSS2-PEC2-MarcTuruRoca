@@ -1,4 +1,19 @@
 @use "dependencies";
 
+@use "settings/fonts";
+@use "settings/variables";
+
+@use "tools/functions";
+@use "tools/mixins";
+
+@use "generic/reset";
+
+@use "elements/base";
+
+@use "objects/container";
+@use "objects/section";
+
 @use "components/header";
 @use "components/home";
+
+@use "utilities/helpers";
