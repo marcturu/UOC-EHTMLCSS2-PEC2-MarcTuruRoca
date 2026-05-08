@@ -37,7 +37,7 @@
   }
 
   &__item {
-    background-color: v.$color-light-fallback;
+    background-color: white;
     color: v.$color-secondary-fallback;
 
     &--skiny {
@@ -47,7 +47,7 @@
       align-items: center;
       justify-content: center;
       gap: v.$spacing-sm;
-      background-color: white;
+      background-color: v.$color-light-fallback;
 
       &::before {
         content: "";
