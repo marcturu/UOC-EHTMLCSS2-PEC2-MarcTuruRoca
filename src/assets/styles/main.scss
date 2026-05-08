@@ -1,3 +1,20 @@
+
+@use "settings/fonts";
+@use "settings/variables" as *;
+
+@use "tools/functions";
+@use "tools/mixins";
+
 @use "dependencies";
 
-@use "layouts/home";
+@use "generic/reset";
+
+@use "elements/base";
+
+@use "objects/container";
+@use "objects/section";
+
+@use "components/header";
+@use "components/hero";
+
+@use "utilities/helpers";
