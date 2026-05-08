@@ -1,22 +1,20 @@
 @use '../settings/variables' as v;
 
-@layer base {
-
-  body {
-    font-family: v.$font-secondary;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: v.$color-dark-fallback;
-    background-color: v.$color-light-fallback;
-    min-height: 100vh;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: v.$font-primary;
-    line-height: 1.2;
-  }
-
-  p {
-    margin-bottom: v.$spacing-sm;
-  }
+body {
+  font-family: v.$font-secondary;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: v.$color-dark-fallback;
+  background-color: v.$color-light-fallback;
+  min-height: 100vh;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: v.$font-primary;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: v.$spacing-sm;
+}
+

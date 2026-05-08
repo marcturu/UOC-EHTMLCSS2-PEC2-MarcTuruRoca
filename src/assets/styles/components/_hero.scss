@@ -37,7 +37,7 @@
   }
 
   &__item {
-    background-color: white;
+    background-color: v.$color-light-fallback;
     color: v.$color-secondary-fallback;
 
     &--skiny {
@@ -47,7 +47,7 @@
       align-items: center;
       justify-content: center;
       gap: v.$spacing-sm;
-      background-color: v.$color-light-fallback;
+      background-color: white;
 
       &::before {
         content: "";
@@ -179,7 +179,7 @@
     font-size: clamp(0.75rem, 1vw, 1rem);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.3);
+    text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.4);
   }
 
   &__title {
@@ -194,7 +194,7 @@
 
       &--accent {
         font-size: clamp(6rem, 9.5vw, 12rem);
-        text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.3);
+        text-shadow: 1px 1px 10px f.color-alpha(v.$color-dark-fallback, 0.5);
         color: v.$color-primary-fallback;
         font-weight: bold;
       }
