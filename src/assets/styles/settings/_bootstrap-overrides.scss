@@ -1,0 +1,26 @@
+@use '../settings/variables' as v;
+
+/* ----- Bootstrap general overrides ----- */
+$theme-colors: (
+  "primary": v.$color-primary-fallback,
+  "secondary": v.$color-secondary-fallback,
+  "light": v.$color-light-fallback,
+  "dark": v.$color-dark-fallback
+);
+$font-family-base: v.$font-secondary;
+$font-family-headings: v.$font-primary;
+
+/* ----- Bootstrap navbar overrides ----- */
+$navbar-light-color: v.$color-secondary-fallback;
+$navbar-light-active-color: v.$color-primary-fallback;
+$navbar-light-hover-color: v.$color-primary-fallback;
+$navbar-padding-x: v.$spacing-xl;
+$navbar-nav-link-padding-x: v.$spacing-sm;
+
+$dropdown-link-color: v.$color-secondary-fallback;
+$dropdown-link-hover-color: v.$color-primary-fallback;
+
+/* ----- Bootstrap button overrides ----- */
+$btn-padding-y: v.$spacing-sm;
+$btn-padding-x: v.$spacing-md;
+$btn-border-radius: v.$spacing-xs;
