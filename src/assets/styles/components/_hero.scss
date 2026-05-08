@@ -7,12 +7,33 @@
   min-height: 100svh;
 
   &__grid {
-    display: grid;
-    height: 100%;
-    grid-template-rows: 0.5fr 0.25fr 0.5fr 0.5fr 0.5fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
-    grid-gap: 15px;
-    padding-inline: v.$container-padding;
+    // Fallback for browsers that don't support grid
+    display: flex;
+    flex-wrap: wrap;
+    gap: v.$spacing-md;
+    max-width: v.$container-max-width;
+    margin-inline: auto;
+
+    > .hero__item {
+      flex: 1 1 400px;
+      min-height: 200px;
+    }
+
+    @supports (display: grid) {
+      display: grid;
+      height: 100%;
+      grid-template-rows: 0.5fr 0.25fr 0.5fr 0.5fr 0.5fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+      grid-gap: 15px;
+      padding-inline: v.$container-padding;
+      max-width: 100%;
+      margin-inline: 0;
+
+      > .hero__item {
+        flex: none;
+        min-height: auto;
+      }
+    }
   }
 
   &__item {
@@ -31,9 +52,14 @@
       &::before {
         content: "";
         display: block;
-        width: 1.5px;
-        height: 15rem;
         background-color: v.$color-secondary-fallback;
+        width: 15rem;
+        height: 1.5px;
+
+        @supports (display: grid) {
+          width: 1.5px;
+          height: 15rem;
+        }
       }
     }
 
@@ -45,17 +71,19 @@
     &--medium {
       grid-row: span 2;
       grid-column: span 2;
-      //transform: translateX(-5.5rem);
       margin-left: -5.5rem;
       padding: v.$spacing-xs v.$spacing-sm;
+      container-type: inline-size;
+      container-name: hero-title-block;
     }
 
     &--mediumdesc {
       grid-row: span 2;
       grid-column: span 2;
-      //transform: translateY(-5rem);
       margin-top: -5rem;
       padding: v.$spacing-xs v.$spacing-sm;
+      container-type: inline-size;
+      container-name: hero-desc-block;
     }
 
     &--large {
@@ -83,6 +111,8 @@
       justify-content: center;
       text-align: justify;
       padding-inline: v.$spacing-xs;
+      container-type: inline-size;
+      container-name: hero-place-block;
     }
 
     &--wide {
@@ -102,10 +132,46 @@
       &::before {
         content: "";
         display: block;
-        width: 100%;
-        height: 3px;
         background-color: v.$color-secondary-fallback;
+        width: 3px;
+        height: 100%;
+
+        @supports (display: grid) {
+          width: 100%;
+          height: 3px;
+        }
       }
+    }
+  }
+
+  @container hero-title-block (max-width: 400px) {
+    .hero__title-line {
+      font-size: clamp(2.5rem, 12cqw, 5rem);
+    }
+
+    .hero__title-line--accent {
+      font-size: clamp(5rem, 15cqw, 7rem);
+    }
+
+    .hero__title-line--complementary {
+      font-size: clamp(0.75rem, 4cqw, 1.5rem);
+    }
+  }
+
+  @container hero-place-block (max-width: 300px) {
+    .hero__place-line {
+      font-size: clamp(0.75rem, 5cqw, 1rem);
+    }
+
+    .hero__place-line--accent {
+      font-size: clamp(1rem, 6cqw, 1.5rem);
+    }
+  }
+
+  @container hero-desc-block (max-width: 450px) {
+    .hero__desc {
+      font-size: clamp(0.8rem, 4cqw, 1rem);
+      line-height: 1.4;
     }
   }
 
@@ -118,14 +184,16 @@
 
   &__title {
     line-height: 0.9;
+    display: flex;
+    flex-direction: column;
 
     &-line {
-      font-size: clamp(5rem, 7vw, 8rem);
+      font-size: clamp(4rem, 5vw, 6rem);
       margin: 0;
       color: v.$color-secondary-fallback;
 
       &--accent {
-        font-size: clamp(7rem, 9vw, 10rem);
+        font-size: clamp(6rem, 9.5vw, 12rem);
         text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.3);
         color: v.$color-primary-fallback;
         font-weight: bold;
@@ -148,11 +216,14 @@
   &__number {
     font-size: clamp(1.5rem, 3.5vw, 2.5rem);
     line-height: 1;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    user-select: none;
     text-transform: uppercase;
     color: v.$color-secondary-fallback;
+
+    @supports (display: grid) {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      user-select: none;
+    }
   }
 
   &__date {
@@ -203,22 +274,5 @@
     padding: v.$spacing-sm v.$spacing-md;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-  }
-}
-
-/* Bootstrap link overrides after Bootstrap imports */
-.btn-primary {
-  color: v.$color-light-fallback !important;
-
-  &:hover {
-    color: v.$color-light-fallback !important;
-  }
-}
-
-a {
-  color: v.$color-secondary-fallback !important;
-
-  &:hover {
-    color: v.$color-primary-fallback !important;
   }
 }
