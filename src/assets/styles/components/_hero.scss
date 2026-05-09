@@ -3,7 +3,7 @@
 @use "../tools/functions" as f;
 
 .hero {
-  padding-top: v.$spacing-xl;
+  padding-top: v.$header-height;
   min-height: 100svh;
 
   &__grid {

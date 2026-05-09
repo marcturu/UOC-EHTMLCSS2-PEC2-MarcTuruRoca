@@ -6,6 +6,7 @@
     background-color: f.color-alpha(v.$color-light-fallback, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); // Safari fallback
+
     .nav-link {
       &.active {
         font-weight: 700;
@@ -13,12 +14,12 @@
     }
   }
 
-  .navbar {
-    &-brand {
-      img {
-        width: 5rem;
-        height: 5rem;
-      }
-    }
+  .header-logo {
+    display: block;
+    height: 4.5rem;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    image-rendering: auto;
   }
 }
