@@ -1,5 +1,9 @@
 @use '../settings/variables' as v;
 
+html {
+  scroll-padding-top: v.$header-height;
+}
+
 body {
   font-family: v.$font-secondary;
   font-size: 1rem;
@@ -9,13 +13,13 @@ body {
   min-height: 100vh;
 }
 
+main {
+  padding-top: v.$header-height;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: v.$font-primary;
   line-height: 1.2;
-}
-
-p {
-  margin-bottom: v.$spacing-sm;
 }
 
 a {
