@@ -1,3 +1,39 @@
-<footer class="uoc-footer">
-  &copy; Universitat Oberta de Catalunya
+<footer class="footer" role="contentinfo">
+  <div class="footer__container o-container">
+    <div class="footer__brand">
+      <a href="/index" class="footer__logo" aria-label="Asociación Cultural Materia">
+        <img
+          src="./assets/images/ACMateria2.png?height=72&as=webp"
+          srcset="
+            ./assets/images/ACMateria2.png?height=72&as=webp 1x,
+            ./assets/images/ACMateria2.png?height=144&as=webp 2x,
+            ./assets/images/ACMateria2.png?height=216&as=webp 3x
+          "
+          sizes="72px"
+          alt="Asociación Cultural Materia logo"
+          class="footer__img"
+          width="109"
+          height="72"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <span>Asociación Cultural Materia</span>
+      </a>
+    </div>
+
+    <nav class="footer__nav" aria-label="Navegación del pie de página">
+      <ul role="list">
+        <li><a class="footer__link" href="/index">Inicio</a></li>
+        <li><a class="footer__link" href="/speakers">Ponentes</a></li>
+        <li><a class="footer__link" href="/blog">Blog</a></li>
+        <li><a class="footer__link" href="/extra">Extra</a></li>
+      </ul>
+    </nav>
+    <p class="footer__copy">
+      <small>
+        Proyecto educativo - <a href="https://www.uoc.edu/" class="no-icon" target="_blank"> <abbr title="Universitat Oberta de Catalunya">UOC</abbr></a> Herramientas HTML y CSS II · 2026.
+        Las imágenes pertenecen a sus respectivos autores.
+        </small>
+    </p>
+  </div>
 </footer>

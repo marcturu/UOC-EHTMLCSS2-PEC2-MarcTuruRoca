@@ -1,0 +1,75 @@
+@use '../settings/variables' as v;
+@use '../tools/mixins' as m;
+@use '../tools/functions' as f;
+
+.footer {
+  background-color: v.$color-dark-fallback;
+  color: v.$color-light-fallback;
+  padding-block: v.$spacing-lg;
+
+  &__container {
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-md;
+
+    @include m.respond-to(md) {
+      grid-template-columns: repeat(3, 1fr);
+
+      > * {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        justify-content: center;
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-xs;
+    text-decoration: none;
+
+    img {
+      display: block;
+      height: 4.5rem;
+      width: auto;
+      max-width: none;
+      object-fit: contain;
+      image-rendering: auto;
+    }
+    
+    span {
+      font-family: v.$font-primary;
+      font-size: 2rem;
+      line-height: 1;
+      margin-top: v.$spacing-sm;
+      margin-left: v.$spacing-xs;
+    }
+  }
+
+  &__nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-xs;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 3px solid v.$color-primary-fallback;
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+  }
+
+  &__copy {
+    font-size: 0.9rem;
+    color: f.color-alpha(v.$color-light-fallback, 0.7);
+    
+  }
+}
