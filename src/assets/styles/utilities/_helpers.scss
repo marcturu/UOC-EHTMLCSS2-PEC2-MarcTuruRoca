@@ -1,5 +1,11 @@
+@use "../settings/variables" as v;
+
 @layer utilities {
   .u-hidden {
     display: none !important;
+  }
+
+  [id] {
+    scroll-margin-top: v.$header-height;
   }
 }

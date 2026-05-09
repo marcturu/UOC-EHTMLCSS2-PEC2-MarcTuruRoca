@@ -1,4 +1,5 @@
-@use '../settings/variables' as v;
+@use "../settings/variables" as v;
+@use "../tools/functions" as f;
 
 /* ----- Bootstrap general overrides ----- */
 $theme-colors: (
@@ -22,3 +23,8 @@ $dropdown-link-hover-color: v.$color-primary-fallback;
 
 /* ----- Bootstrap button overrides ----- */
 $btn-border-radius: v.$spacing-xs;
+
+/* ----- Bootstrap card overrides ----- */
+$card-title-color: v.$color-secondary-fallback;
+$card-subtitle-color: v.$color-primary-fallback;
+$card-border-color: v.$color-border-fallback;
