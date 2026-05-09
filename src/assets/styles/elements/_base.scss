@@ -18,3 +18,11 @@ p {
   margin-bottom: v.$spacing-sm;
 }
 
+a {
+  color: v.$color-light-fallback;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: v.$color-primary-fallback;
+  }
+}
