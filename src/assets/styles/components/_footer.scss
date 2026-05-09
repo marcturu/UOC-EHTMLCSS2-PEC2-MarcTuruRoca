@@ -43,6 +43,9 @@
     span {
       font-family: v.$font-primary;
       font-size: 2rem;
+      line-height: 1;
+      margin-top: v.$spacing-sm;
+      margin-left: v.$spacing-xs;
     }
   }
 
