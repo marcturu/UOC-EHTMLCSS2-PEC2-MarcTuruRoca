@@ -1,20 +1,34 @@
+/* Settings */
 @use "settings/fonts";
 @use "settings/variables" as *;
 
+/* Tools */
 @use "tools/functions";
 @use "tools/mixins";
 
+/* Dependencies */
 @use "dependencies";
 
+/* Generic & Elements */
 @use "generic/reset";
 @use "elements/base";
 
+/* Objects */
 @use "objects/container";
 @use "objects/section";
 
+/* Components */
 @use "components/header";
 @use "components/footer";
-@use "components/hero";
+
+@use "components/hero-home";
+
 @use "components/cards";
 
+@use "components/hero-blog";
+@use "components/intro-blog";
+@use "components/list-blog";
+@use "components/final-blog";
+
+/* Utilities */
 @use "utilities/helpers";

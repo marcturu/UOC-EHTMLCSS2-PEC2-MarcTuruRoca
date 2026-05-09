@@ -6,3 +6,10 @@
   margin-inline: auto;
   padding-inline: v.$container-padding;
 }
+
+.o-container--narrow {
+  width: 100%;
+  max-width: v.$container-narrow-max-width;
+  margin-inline: auto;
+  padding-inline: v.$container-padding;
+}

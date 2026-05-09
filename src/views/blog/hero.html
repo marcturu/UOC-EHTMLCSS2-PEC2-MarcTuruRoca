@@ -1,0 +1,48 @@
+<section class="article-hero o-section" aria-labelledby="article-title">
+  <div class="article-hero__image-wrapper">
+    <picture>
+      <!-- Mobile (2:3 -> 0.6667) -->
+      <source
+        media="(max-width: 576px)"
+        srcset="
+          ./assets/images/blog/hero-mobile.jpg?width=600&as=webp 600w,
+          ./assets/images/blog/hero-mobile.jpg?width=900&as=webp 900w
+        "
+        sizes="100vw"
+      />
+      <!-- Tablet (5:4 -> 1.25) -->
+      <source
+        media="(max-width: 992px)"
+        srcset="
+          ./assets/images/blog/hero-tablet.jpg?width=900&as=webp 900w,
+          ./assets/images/blog/hero-tablet.jpg?width=1200&as=webp 1200w
+        "
+        sizes="100vw"
+      />
+      <!-- Desktop (2:1 -> 2) -->
+      <img
+        class="hero__image"
+        src="./assets/images/blog/hero-desktop.jpg?width=1200&as=webp"
+        srcset="
+          ./assets/images/blog/hero-desktop.jpg?width=1200&as=webp 1200w,
+          ./assets/images/blog/hero-desktop.jpg?width=1600&as=webp 1600w,
+          ./assets/images/blog/hero-desktop.jpg?width=1920&as=webp 1920w
+        "
+        alt=""
+        width="1200"
+        height="600"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </picture>
+  </div>
+  <div class="article-hero__content o-container">
+    <h1 class="article-hero__title" id="article-title">
+      La artesania<br />en la era digital
+    </h1>
+    <p class="article-hero__meta">
+      <span class="article-hero__author">por Associació Cultural Materia</span>
+      <time datetime="2026-05-10" class="article-hero__date">10 de mayo de 2026</time>
+    </p>
+  </div>
+</section>
