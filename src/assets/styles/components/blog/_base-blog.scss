@@ -1,0 +1,45 @@
+@use "../../settings/variables" as v;
+
+@layer article-base {
+  .article {
+    // :where() - aplica alineación de texto a los elementos del :where()
+    :where(p, li, blockquote, figcaption) {
+      text-align: justify;
+    }
+
+    &__section {
+
+      // :is() - aplica el mismo estilo a múltiples secciones sin repetir código
+      &:is(.article__section--list, .article__section--reflection) {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+
+          width: v.$container-narrow-max-width;
+          border-top: 3px solid v.$color-border-fallback;
+        }
+      }
+
+      // :where() - bajo peso específico, fácil de sobreescribir
+      &:where(:not(.article_-section--fullwidth)) {
+        padding-inline: 0;
+      }
+    }
+
+    // :is() - estilos compartidos entre niveles de heading
+    :is(h2, h3) {
+      color: v.$color-secondary-fallback;
+      margin-bottom: v.$spacing-md;
+    }
+
+    :where(p) {
+      color: v.$color-secondary-fallback;
+      line-height: 1.8;
+    }
+  }
+}

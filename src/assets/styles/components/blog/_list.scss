@@ -1,0 +1,61 @@
+@use "../../settings/variables" as v;
+
+@layer article-components {
+  .article {
+
+    &__section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+    }
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-md;
+      container-type: inline-size;
+      container-name: article-list;
+    }
+
+    &__list-item {
+      display: flex;
+      gap: v.$spacing-md;
+      padding-bottom: v.$spacing-sm;
+      border-bottom: 1px solid v.$color-border-fallback;
+
+      // :has() - si el item contiene un h3 con texto, añade inidcador visual
+      // Fallback: sin :has() el estilo funciona igual
+      &:has(.article__list-title) {
+        align-items: flex-start;
+      }
+
+      @container article-list (max-width: 500px) {
+        gap: v.$spacing-sm;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &__list-number {
+      font-family: v.$font-primary;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      color: v.$color-primary-fallback;
+      flex-shrink: 0;
+      width: 3rem;
+
+      @container article-list (max-width: 500px) {
+        font-size: 2rem;
+        width: auto;
+      }
+    }
+
+    &__list-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: v.$color-secondary-fallback;
+    }
+  }
+}
