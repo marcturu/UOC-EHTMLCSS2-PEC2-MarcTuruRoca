@@ -1,0 +1,26 @@
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+
+@layer article-components {
+  .article {
+
+    &__section--reflection {
+
+      // :has() con fallback - si la sección contiene un blockquote, añade más espacio visual 
+      @supports selector(:has(*)) {
+        .article__reflection-body:has(.article__blockquote) {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: v.$spacing-sm;
+
+          @include m.respond-to(md) {
+            // El bloquequote se destaca visualmente cuando está entre párrafos
+            .article__blockquote {
+              margin-inline: -#{v.$spacing-md};
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+
+@layer article-components {
+  .article {
+
+    &__two-col {
+      container-type: inline-size;
+      container-name: article-two-col;
+      display: flex;
+      flex-direction: row;
+      gap: v.$spacing-lg;
+      
+      @include m.respond-to-max(md) {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
+    &__lead-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      flex: 0 0 40%;
+
+      @container article-two-col (max-width: 500px) {
+        font-size: clamp(1.5rem, 8cqw, 2.5rem);
+        flex: none;
+      }
+    }
+  }
+}
