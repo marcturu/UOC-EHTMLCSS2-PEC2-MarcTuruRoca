@@ -26,7 +26,7 @@
       }
 
       // :where() - bajo peso específico, fácil de sobreescribir
-      &:where(:not(.article_-section--fullwidth)) {
+      &:where(:not(.article__section--fullwidth)) {
         padding-inline: 0;
       }
     }

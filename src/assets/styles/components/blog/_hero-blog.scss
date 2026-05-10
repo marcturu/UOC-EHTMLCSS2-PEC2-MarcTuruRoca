@@ -54,10 +54,10 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-color: lienar-gradient(
+      background: linear-gradient(
         to top,
-        f.color-alpha(v.$color-dark-fallback, 0.8),
-        f.color-alpha(v.$color-dark-fallback, 0.2)
+        f.color-alpha(v.$color-dark-fallback, 0.75),
+        f.color-alpha(v.$color-dark-fallback, 0.2),
         transparent
       );
       z-index: 1;
