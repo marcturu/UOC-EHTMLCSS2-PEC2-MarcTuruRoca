@@ -1,33 +1,45 @@
 @use "layers";
 
-/* Settings */
+/* ----- Settings ----- */
 @use "settings/fonts";
 @use "settings/variables" as *;
 
-/* Tools */
+/* ----- Tools ----- */
 @use "tools/functions";
 @use "tools/mixins";
 
-/* Dependencies */
+/* ----- Dependencies ----- */
 @use "dependencies";
 
-/* Generic & Elements */
+/* ----- Generic & Elements ------ */
 @use "generic/reset";
 @use "elements/base";
 
-/* Objects */
+/* ----- Objects ----- */
 @use "objects/container";
 @use "objects/section";
 
-/* Components */
-@use "components/header";
-@use "components/footer";
+/* ----- Components ----- */
+/* Partials */
+@use "components/partials/header";
+@use "components/partials/footer";
 
-@use "components/hero-home";
+/* Home */
+@use "components/home/hero-home";
 
-@use "components/cards";
+/* Speakers */
+@use "components/speakers/cards-speakers";
 
-@use "components/blog";
+/* Blog */
+@use "components/blog/blog";
 
-/* Utilities */
+/* Contact */
+@use "components/contact/hero-contact";
+@use "components/contact/section-contact";
+@use "components/contact/cards-contact";
+@use "components/contact/form";
+@use "components/contact/map";
+@use "components/contact/index";
+
+/* ----- Utilities ----- */
 @use "utilities/helpers";

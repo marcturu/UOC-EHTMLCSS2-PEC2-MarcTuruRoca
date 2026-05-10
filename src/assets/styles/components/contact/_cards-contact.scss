@@ -1,0 +1,84 @@
+@use "../../settings/variables" as v;
+@use "../../tools/functions" as f;
+
+@layer contact-components {
+  .contact-cards {
+    container-type: inline-size;
+    container-name: contact-cards;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+  }
+
+  .contact-card {
+    display: flex;
+    gap: v.$spacing-sm;
+    align-items: flex-start;
+    padding: v.$spacing-sm;
+    border: 1px solid v.$color-border-fallback;
+    border-radius: v.$spacing-xs;
+    background-color: v.$color-light-fallback;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    @supports (color: oklch(90% 0.02 90)) {
+      border-color: v.$color-border;
+    }
+
+    &:hover {
+      border-color: v.$color-primary-fallback;
+      box-shadow: 0 2px 12px f.color-alpha(v.$color-primary-fallback, 0.1);
+
+      @supports (color: oklch(62% 0.15 50)) {
+        border-color: v.$color-primary;
+      }
+    }
+
+    @container contact-cards (min-width: 300px) {
+      gap: v.$spacing-md;
+      padding: v.$spacing-md;
+    }
+
+    &__icon {
+      font-size: clamp(1.25rem, 5cqw, 1.75rem);
+      color: v.$color-primary-fallback;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+
+      @supports (color: oklch(62% 0.15 50)) {
+        color: v.$color-primary;
+      }
+    }
+
+    &__title {
+      font-size: clamp(2rem, 4cqw, 2.5rem);
+      font-weight: 700;
+      color: v.$color-secondary-fallback;
+      margin-bottom: v.$spacing-sm;
+
+      @supports (color: oklch(30% 0.03 260)) {
+        color: v.$color-secondary;
+      }
+    }
+
+    &__text {
+      font-size: clamp(0.9rem, 3.5cqw, 1rem);
+      color: v.$color-secondary-fallback;
+      margin: 0;
+      line-height: 1.5;
+
+      @supports (color: oklch(30% 0.03 260)) {
+        color: v.$color-secondary;
+      }
+
+    }
+
+    &__socials {
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-sm;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

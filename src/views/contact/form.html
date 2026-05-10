@@ -1,0 +1,127 @@
+<div class="contact-section__form-wrapper" id="contact-form">
+  <h2 class="contact-section__title">Envíanos un mensaje</h2>
+  <form 
+    class="contact-form"
+    name="contact
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    novalidate
+    aria-label="Formulario de contacto"
+  >
+
+    <p class="u-visually-hidden">
+      <label>
+        No rellenes este campo si eres humano:
+        <input name="bot-field" tabnidex="-1" autocomplete="off" />
+      </label>
+    </p>
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <div class="contact-form__group mb-3">
+      <label for="contact-name" class="contact-form__label form-label">
+        Nombre y apellidos <span aria-hidden="true" class="contact-form__required">*</span>
+        <span class="u-visually-hidden">(obligatorio)</span>
+      </label>
+      <input 
+        type="text"
+        id="contact-name" 
+        class="contact-form__input form-control"
+        placeholder="Marc Turu Roca"
+        requiredautocomplete="name"
+        aria-required="true"
+        aria-describedby="name-hint"
+      />
+      <div class="contact-form__hint form-text" id="name-hint">
+        Tal y como aparecerá en la confirmación de inscripción.
+      </div>
+    </div>
+
+    <div class="contact-form__group mb-3">
+      <label for="contact-email" class="contact-form__label form-label">
+        Correo electrónico <span aria-hidden="true" class="contact-form__required">*</span>
+        <span class="u-visually-hidden">(obligatorio)</span>
+      </label>
+      <input 
+        type="text" 
+        id="contact-email"
+        name="email"
+        class="contact-form__input form-control"
+        placeholder="marc@example.com"
+        required
+        autocomplete="email"
+        aria-required="true"
+        aria-describedby="email-hint"
+      />
+      <div class="contact-form__hint form-text" id="email-hint">
+        No compartimos tu correo con nadie.
+      </div>
+    </div>
+
+    <div class="contact-form__group mb-3">
+      <label for="contact-subject" class="contact-form__label form-label">
+        Motivo de la consulta <span aria-hidden="true" class="contact-form__required">*</span>
+        <span class="u-visually-hidden">(obligatorio)</span>
+      </label>
+      <select 
+        id="contact-subject" 
+        name="subject"
+        class="contact-form__select form-select"
+        required
+        aria-required="true"
+      >
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="inscripcion">Inscripción a las jornadas</option>
+        <option value="taller">Consulta sobre talleres</option>
+        <option value="ponencia">Propuesta de ponencia</option>
+        <option value="prensa">Prensa y comunicación</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="contact-form__group mb-3">
+      <label for="contact-message" class="contact-form__label form-label">
+        Mensaje <span aria-hidden="true" class="contact-form__required">*</span>
+        <span class="u-visually-hidden">(obligatorio)</span>
+      </label>
+      <textarea 
+        id="contact-message" 
+        name="message"
+        class="contact-form__textarea form-control"
+        rows="5"
+        placeholder="Explícanos en qué te podemos ayudar."
+        required
+        aria-required="true"
+        ></textarea>
+    </div>
+
+    <div class="contact-form__group contact-form__group--check mb-4">
+      <div class="form-check">
+        <input 
+          type="checkbox" 
+          id="contact-rgpd"
+          name="rgpd" 
+          class="form-check-input contact-form__check"
+          required
+          aria-required="true"
+          aria-describedby="rgpd-desc"
+        />
+        <label for="contact-rgpd" class="form-check-label contact-form__check-label">
+          He leído y acepto la 
+          <a href="/links" target="_blank" rel="noopener noreferrer">
+            política de privacidad
+          </a>
+          <span class="contact-form__required aria-hidden=true">*</span>
+        </label>
+      </div>
+      <div id="rgpd-desc" class="contact-form__hint form-text">
+        Tus datos se usaran únicamente para responder a tu consulta.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary contact-form__submit">
+      Envía el mensaje
+      <i class="fa-solid-fa-paper-plane" aria-hidden="true"></i>
+    </button>
+  </form>
+</div>

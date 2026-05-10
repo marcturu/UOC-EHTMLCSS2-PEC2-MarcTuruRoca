@@ -1,0 +1,71 @@
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+
+@layer contact-base {
+  .contact-hero {
+    position: relative;
+    min-height: 50vh; //fallback
+    min-height: 50dvh; //modern
+    display: flex;
+    align-items: center;
+    margin-top: v.$spacing-md;
+    overflow: hidden;
+    background-color: v.$color-secondary-fallback; 
+
+    @supports (color: oklch(30% 0.03 260)) {
+      background-color: v.$color-secondary;
+    }
+
+    @supports (color: color(display-p3 0 0 0)) {
+      background-color: color(display-p3 0.18 0.24 0.27);
+    }
+
+    &__inner {
+      position: relative;
+      z-index: 2;
+
+      @include m.respond-to(md) {
+        padding-block: v.$spacing-md;
+      }
+    }
+
+    &__pretitle {
+      display: block;
+      font-size: clamp(0.7rem, 1vw, 0.875rem);
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: v.$spacing-sm;
+      color: v.$color-light-fallback;
+
+      @supports (color: oklch(99% 0.005 75)) {
+        color: v.$color-light;
+      }
+    }
+
+    &__title {
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: v.$spacing-md;
+      color: v.$color-light-fallback;
+
+      @supports (color: oklch(99% 0.005 75)) {
+        color: v.$color-light;
+      }
+    }
+
+    &__subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: v.$spacing-lg;
+      color: v.$color-light-fallback;
+      opacity: 0.9;
+    }
+
+    &__cta {
+      letter-spacing: 0.075em;
+    }
+  }
+}

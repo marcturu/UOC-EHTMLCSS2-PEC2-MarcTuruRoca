@@ -1,6 +1,6 @@
-@use "../settings/variables" as v;
-@use "../tools/mixins" as m;
-@use "../tools/functions" as f;
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+@use "../../tools/functions" as f;
 
 // @layer to make sure article-base is loaded before article-components
 @layer article-base, article-components;
@@ -36,7 +36,7 @@
     }
 
     &__title {
-      font-size: clamp(2.5rem, 6vw, 6rem);
+      font-size: clamp(3rem, 6vw, 6rem);
       color: v.$color-primary-fallback;
       text-shadow: 1px 1px 1px f.color-alpha(v.$color-light-fallback, 0.8);
     }
@@ -123,12 +123,12 @@
       
       @include m.respond-to-max(md) {
         flex-direction: column;
-        gap: v.$spacing-md;
+        gap: 0;
       }
     }
 
     &__lead-title {
-      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-size: clamp(2rem, 3.5vw, 3rem);
       line-height: 1.1;
       flex: 0 0 40%;
 
@@ -139,12 +139,7 @@
     }
 
     &__section-title {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-
-      &--large {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        line-height: 1.05;
-      }
+      font-size: clamp(2rem, 3.5vw, 3rem);
     }
 
     &__list {
@@ -159,7 +154,7 @@
 
     &__list-item {
       display: flex;
-      gap: v.$spacing-sm;
+      gap: v.$spacing-md;
       padding-bottom: v.$spacing-sm;
       border-bottom: 1px solid v.$color-border-fallback;
 
@@ -170,7 +165,6 @@
       }
 
       @container article-list (max-width: 500px) {
-        flex-direction: column;
         gap: v.$spacing-sm;
       }
 
@@ -195,7 +189,7 @@
     }
 
     &__list-title {
-      font-size: 1.5rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       color: v.$color-secondary-fallback;
     }
 

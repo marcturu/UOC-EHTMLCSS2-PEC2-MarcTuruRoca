@@ -1,6 +1,6 @@
-@use '../settings/variables' as v;
-@use '../tools/mixins' as m;
-@use '../tools/functions' as f;
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+@use "../../tools/functions" as f;
 
 @layer components {
   .footer {

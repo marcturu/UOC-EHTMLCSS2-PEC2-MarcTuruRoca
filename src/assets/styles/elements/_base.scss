@@ -1,4 +1,4 @@
-@use '../settings/variables' as v;
+@use "../settings/variables" as v;
 
 html {
   scroll-padding-top: v.$header-height;
@@ -26,6 +26,15 @@ a:not(.nav-link):not(.dropdown-item) {
   transition: color 0.25s ease;
 
   &:hover {
-    color: v.$color-primary-fallback;
+    color: white;
+  }
+}
+
+button {
+  color: v.$color-light-fallback;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: white;
   }
 }
