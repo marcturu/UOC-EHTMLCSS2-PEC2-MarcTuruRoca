@@ -8,10 +8,9 @@
 @layer article-base {
   .article-hero {
     position: relative;
-    background-color: v.$color-secondary-fallback;
+    overflow: hidden;
 
     &__image-wrapper {
-      overflow: hidden;
       max-height: 400px;
 
       img {
@@ -19,22 +18,27 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
-        opacity: 0.6;
         display: block;
       }
     }
 
     &__content {
-      position: relative;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding-block: v.$spacing-lg;
       color: v.$color-light-fallback;
+      gap: v.$spacing-sm;
+      z-index: 2;
+      filter: drop-shadow(5px 5px 20px f.color-alpha(v.$color-dark-fallback, 1));
     }
 
     &__title {
       font-size: clamp(2.5rem, 6vw, 6rem);
-      font-weight: 900;
-      color: v.$color-light-fallback;
-      margin-bottom: v.$spacing-md;
+      color: v.$color-primary-fallback;
+      text-shadow: 1px 1px 1px f.color-alpha(v.$color-light-fallback, 0.8);
     }
 
     &__meta {
@@ -42,13 +46,25 @@
       gap: v.$spacing-sm;
       margin-bottom: v.$spacing-md;
       flex-wrap: wrap;
-      font-size: 0.875rem;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     &__author,
     &__date {
       color: v.$color-light-fallback;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: lienar-gradient(
+        to top,
+        f.color-alpha(v.$color-dark-fallback, 0.8),
+        f.color-alpha(v.$color-dark-fallback, 0.2)
+        transparent
+      );
+      z-index: 1;
     }
   }
 
@@ -61,8 +77,19 @@
     &__section {
 
       // :is() - aplica el mismo estilo a múltiples secciones sin repetir código
-      &:is(.article__section--intro, .article__section--reflection) {
-        border-top: 3px solid v.$color-border-fallback;
+      &:is(.article__section--list, .article__section--reflection) {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+
+          width: v.$container-narrow-max-width;
+          border-top: 3px solid v.$color-border-fallback;
+        }
       }
 
       // :where() - bajo peso específico, fácil de sobreescribir
@@ -74,13 +101,12 @@
     // :is() - estilos compartidos entre niveles de heading
     :is(h2, h3) {
       color: v.$color-secondary-fallback;
-      font-weight: 900;
+      margin-bottom: v.$spacing-md;
     }
 
     :where(p) {
       color: v.$color-secondary-fallback;
       line-height: 1.8;
-      margin-bottom: v.$spacing-sm;
     }
   }
 }
@@ -103,7 +129,6 @@
 
     &__lead-title {
       font-size: clamp(1.75rem, 4vw, 3rem);
-      font-weight: 900;
       line-height: 1.1;
       flex: 0 0 40%;
 
@@ -113,14 +138,8 @@
       }
     }
 
-    &__lead-body {
-      text-align: justify;
-    }
-
     &__section-title {
       font-size: clamp(1.5rem, 3vw, 2.5rem);
-      font-weight: 900;
-      margin-bottom: v.$spacing-md;
 
       &--large {
         font-size: clamp(2rem, 4vw, 3.5rem);
@@ -140,8 +159,8 @@
 
     &__list-item {
       display: flex;
-      gap: v.$spacing-md;
-      padding-bottom: v.$spacing-md;
+      gap: v.$spacing-sm;
+      padding-bottom: v.$spacing-sm;
       border-bottom: 1px solid v.$color-border-fallback;
 
       // :has() - si el item contiene un h3 con texto, añade inidcador visual
@@ -176,9 +195,7 @@
     }
 
     &__list-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: v.$spacing-xs;
+      font-size: 1.5rem;
       color: v.$color-secondary-fallback;
     }
 
@@ -186,7 +203,6 @@
       container-type: inline-size;
       container-name: article-quote;
       border-left: 4px solid v.$color-primary-fallback;
-      margin: v.$spacing-lg 0;
       padding: v.$spacing-sm v.$spacing-md;
       background-color: f.color-alpha(v.$color-primary-fallback, 0.05);
       border-radius: 0 0.5rem 0.5rem 0;
@@ -195,8 +211,7 @@
         font-size: clamp(1rem, 3cqw, 1.35rem);
         font-style: italic;
         font-weight: 500;
-        color: v.$color-secondary-fallback;
-        margin-bottom: v.$spacing-xs;
+        margin-bottom: 0;
 
         @container article-quote (max-width: 400px) {
           font-size: clamp(0.9rem, 5cqw, 1.1rem);
@@ -204,7 +219,7 @@
       }
 
       cite {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: v.$color-primary-fallback;
         font-weight: 600;
       }
@@ -213,19 +228,13 @@
         border-left-color: v.$color-accent-fallback;
         background-color: f.color-alpha(v.$color-accent-fallback, 0.05);
 
-        p {
-          color: v.$color-secondary-fallback;
-        }
-
         cite {
           color: v.$color-accent-fallback;
         }
       }
     }
 
-    &__figure-full {
-      margin: 0;
-      background-color: v.$color-secondary-fallback;
+    &__figure {
       overflow: hidden;
 
       img {
@@ -233,8 +242,9 @@
         height: 600px;
         object-fit: cover;
         object-position: center;
-        opacity: 0.85;
+        opacity: 0.9;
         display: block;
+        border-radius: v.$spacing-xs;
         transition: opacity 0.3s ease;
 
         &:hover {
@@ -244,10 +254,9 @@
     }
 
     &__figure-caption {
-      font-size: 0.8rem;
-      color: v.$color-light-fallback;
+      color: v.$color-secondary-fallback;
       font-size: italic;
-      background-color: v.$color-secondary-fallback;
+      margin-top: v.$spacing-xs;
     }
 
     &__section--reflection {

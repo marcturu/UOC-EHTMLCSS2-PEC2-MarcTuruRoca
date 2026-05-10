@@ -2,359 +2,361 @@
 @use "../tools/mixins" as m;
 @use "../tools/functions" as f;
 
-.hero {
-  min-height: 100svh;
+@layer components {
+  .hero {
+    min-height: 100svh;
 
-  &__grid {
-    // Fallback for browsers that don't support grid
-    display: flex;
-    flex-wrap: wrap;
-    gap: v.$spacing-md;
-    max-width: v.$container-max-width;
-    margin-inline: auto;
-
-    > .hero__item {
-      flex: 1 1 400px;
-      min-height: 200px;
-    }
-
-    @supports (display: grid) {
-      display: grid;
-      height: 100%;
-      grid-template-rows: 0.5fr 0.25fr 0.5fr 0.5fr 0.5fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
-      grid-gap: 15px;
-      padding-inline: v.$container-padding;
-      max-width: 100%;
-      margin-inline: 0;
+    &__grid {
+      // Fallback for browsers that don't support grid
+      display: flex;
+      flex-wrap: wrap;
+      gap: v.$spacing-md;
+      max-width: v.$container-max-width;
+      margin-inline: auto;
 
       > .hero__item {
-        flex: none;
-        min-height: auto;
+        flex: 1 1 400px;
+        min-height: 200px;
       }
 
-      @include m.respond-to-max(lg) {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-      }
+      @supports (display: grid) {
+        display: grid;
+        height: 100%;
+        grid-template-rows: 0.5fr 0.25fr 0.5fr 0.5fr 0.5fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+        grid-gap: 15px;
+        padding-inline: v.$container-padding;
+        max-width: 100%;
+        margin-inline: 0;
 
-      @include m.respond-to-max(md) {
-        grid-template-columns: 1fr;
+        > .hero__item {
+          flex: none;
+          min-height: auto;
+        }
+
+        @include m.respond-to-max(lg) {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: auto;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-template-columns: 1fr;
+        }
       }
     }
-  }
 
-  &__item {
-    background-color: v.$color-light-fallback;
-    color: v.$color-secondary-fallback;
+    &__item {
+      background-color: v.$color-light-fallback;
+      color: v.$color-secondary-fallback;
 
-    &--skiny {
-      grid-row: span 5;
-      grid-column: span 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: v.$spacing-sm;
-      background-color: white;
-
-      @include m.respond-to-max(lg) {
-        background-color: v.$color-light-fallback;
-        grid-column: span 2;
-      }
-
-      @include m.respond-to-max(md) {
-        grid-row: span 1;
-        grid-column: auto;
+      &--skiny {
+        grid-row: span 5;
+        grid-column: span 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: v.$spacing-sm;
         background-color: white;
+
+        @include m.respond-to-max(lg) {
+          background-color: v.$color-light-fallback;
+          grid-column: span 2;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-row: span 1;
+          grid-column: auto;
+          background-color: white;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          background-color: v.$color-secondary-fallback;
+          width: 15rem;
+          height: 1.5px;
+
+          @supports (display: grid) {
+            width: 1.5px;
+            height: 15rem;
+
+            @include m.respond-to-max(lg) {
+              display: none;
+            }
+          }
+        }
       }
 
-      &::before {
-        content: "";
-        display: block;
-        background-color: v.$color-secondary-fallback;
-        width: 15rem;
-        height: 1.5px;
+      &--small {
+        grid-row: span 1;
+        grid-column: span 1;
 
-        @supports (display: grid) {
-          width: 1.5px;
-          height: 15rem;
+        @include m.respond-to-max(md) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
 
-          @include m.respond-to-max(lg) {
-            display: none;
+      &--medium {
+        grid-row: span 2;
+        grid-column: span 2;
+        margin-left: -5.5rem;
+        padding: v.$spacing-xs v.$spacing-sm;
+        container-type: inline-size;
+        container-name: hero-title-block;
+
+        @include m.respond-to-max(lg) {
+          margin-left: 0;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-column: span 1;
+          grid-row: auto;
+        }
+      }
+
+      &--mediumdesc {
+        grid-row: span 2;
+        grid-column: span 2;
+        margin-top: -5rem;
+        padding: v.$spacing-xs v.$spacing-sm;
+        container-type: inline-size;
+        container-name: hero-desc-block;
+
+        @include m.respond-to-max(lg) {
+          margin-top: 0;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-column: span 1;
+          grid-row: auto;
+        }
+      }
+
+      &--large {
+        grid-row: span 3;
+        grid-column: span 3;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        @include m.respond-to-max(lg) {
+          grid-column: span 4;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-column: span 1;
+          grid-row: auto;
+        }
+      }
+
+      &--broad {
+        grid-row: span 1;
+        grid-column: span 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        padding-inline: v.$spacing-xs;
+        container-type: inline-size;
+        container-name: hero-place-block;
+
+        @include m.respond-to-max(lg) {
+          justify-content: flex-start;
+          grid-column: span 4;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-column: span 1;
+        }
+      }
+
+      &--wide {
+        grid-row: span 1;
+        grid-column: span 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @include m.respond-to-max(lg) {
+          grid-column: span 4;
+          justify-content: center;
+        }
+
+        @include m.respond-to-max(md) {
+          grid-column: span 1;
+        }
+      }
+
+      &--spacer {
+        grid-row: span 1;
+        grid-column: span 3;
+        display: flex;
+        align-items: center;
+
+        @include m.respond-to-max(lg) {
+          grid-column: span 4;
+        }
+
+        @include m.respond-to-max(md) {
+          display: none;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          background-color: v.$color-secondary-fallback;
+          width: 3px;
+          height: 100%;
+
+          @supports (display: grid) {
+            width: 100%;
+            height: 3px;
           }
         }
       }
     }
 
-    &--small {
-      grid-row: span 1;
-      grid-column: span 1;
+    @container hero-title-block (max-width: 400px) {
+      .hero__title-line {
+        font-size: clamp(2.5rem, 12cqw, 5rem);
+      }
 
-      @include m.respond-to-max(md) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .hero__title-line--accent {
+        font-size: clamp(5rem, 15cqw, 7rem);
+      }
+
+      .hero__title-line--complementary {
+        font-size: clamp(0.75rem, 4cqw, 1.5rem);
       }
     }
 
-    &--medium {
-      grid-row: span 2;
-      grid-column: span 2;
-      margin-left: -5.5rem;
-      padding: v.$spacing-xs v.$spacing-sm;
-      container-type: inline-size;
-      container-name: hero-title-block;
-
-      @include m.respond-to-max(lg) {
-        margin-left: 0;
+    @container hero-place-block (max-width: 300px) {
+      .hero__place-line {
+        font-size: clamp(0.75rem, 5cqw, 1rem);
       }
 
-      @include m.respond-to-max(md) {
-        grid-column: span 1;
-        grid-row: auto;
+      .hero__place-line--accent {
+        font-size: clamp(1rem, 6cqw, 1.5rem);
       }
     }
 
-    &--mediumdesc {
-      grid-row: span 2;
-      grid-column: span 2;
-      margin-top: -5rem;
-      padding: v.$spacing-xs v.$spacing-sm;
-      container-type: inline-size;
-      container-name: hero-desc-block;
-
-      @include m.respond-to-max(lg) {
-        margin-top: 0;
-      }
-
-      @include m.respond-to-max(md) {
-        grid-column: span 1;
-        grid-row: auto;
+    @container hero-desc-block (max-width: 450px) {
+      .hero__desc {
+        font-size: clamp(0.8rem, 4cqw, 1rem);
+        line-height: 1.4;
       }
     }
 
-    &--large {
-      grid-row: span 3;
-      grid-column: span 3;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      @include m.respond-to-max(lg) {
-        grid-column: span 4;
-      }
-
-      @include m.respond-to-max(md) {
-        grid-column: span 1;
-        grid-row: auto;
-      }
+    &__tag {
+      font-size: clamp(0.75rem, 1vw, 1rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.4);
     }
 
-    &--broad {
-      grid-row: span 1;
-      grid-column: span 2;
+    &__title {
+      line-height: 0.9;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: justify;
-      padding-inline: v.$spacing-xs;
-      container-type: inline-size;
-      container-name: hero-place-block;
+      flex-direction: column;
 
-      @include m.respond-to-max(lg) {
-        justify-content: flex-start;
-        grid-column: span 4;
-      }
+      &-line {
+        font-size: clamp(3rem, 6vw, 7rem);
+        margin: 0;
+        color: v.$color-secondary-fallback;
 
-      @include m.respond-to-max(md) {
-        grid-column: span 1;
-      }
-    }
+        &--accent {
+          font-size: clamp(6rem, 9.5vw, 12rem);
+          text-shadow: 1px 1px 10px f.color-alpha(v.$color-dark-fallback, 0.5);
+          color: v.$color-primary-fallback;
+          font-weight: bold;
+        }
 
-    &--wide {
-      grid-row: span 1;
-      grid-column: span 2;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      @include m.respond-to-max(lg) {
-        grid-column: span 4;
-        justify-content: center;
-      }
-
-      @include m.respond-to-max(md) {
-        grid-column: span 1;
-      }
-    }
-
-    &--spacer {
-      grid-row: span 1;
-      grid-column: span 3;
-      display: flex;
-      align-items: center;
-
-      @include m.respond-to-max(lg) {
-        grid-column: span 4;
-      }
-
-      @include m.respond-to-max(md) {
-        display: none;
-      }
-
-      &::before {
-        content: "";
-        display: block;
-        background-color: v.$color-secondary-fallback;
-        width: 3px;
-        height: 100%;
-
-        @supports (display: grid) {
-          width: 100%;
-          height: 3px;
+        &--complementary {
+          font-size: clamp(1rem, 2vw, 3rem);
+          color: v.$color-primary-fallback;
         }
       }
     }
-  }
 
-  @container hero-title-block (max-width: 400px) {
-    .hero__title-line {
-      font-size: clamp(2.5rem, 12cqw, 5rem);
-    }
-
-    .hero__title-line--accent {
-      font-size: clamp(5rem, 15cqw, 7rem);
-    }
-
-    .hero__title-line--complementary {
-      font-size: clamp(0.75rem, 4cqw, 1.5rem);
-    }
-  }
-
-  @container hero-place-block (max-width: 300px) {
-    .hero__place-line {
-      font-size: clamp(0.75rem, 5cqw, 1rem);
-    }
-
-    .hero__place-line--accent {
-      font-size: clamp(1rem, 6cqw, 1.5rem);
-    }
-  }
-
-  @container hero-desc-block (max-width: 450px) {
-    .hero__desc {
-      font-size: clamp(0.8rem, 4cqw, 1rem);
-      line-height: 1.4;
-    }
-  }
-
-  &__tag {
-    font-size: clamp(0.75rem, 1vw, 1rem);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px f.color-alpha(v.$color-dark-fallback, 0.4);
-  }
-
-  &__title {
-    line-height: 0.9;
-    display: flex;
-    flex-direction: column;
-
-    &-line {
-      font-size: clamp(4rem, 5vw, 6rem);
-      margin: 0;
-      color: v.$color-secondary-fallback;
-
-      &--accent {
-        font-size: clamp(6rem, 9.5vw, 12rem);
-        text-shadow: 1px 1px 10px f.color-alpha(v.$color-dark-fallback, 0.5);
-        color: v.$color-primary-fallback;
-        font-weight: bold;
-      }
-
-      &--complementary {
-        font-size: clamp(1rem, 2vw, 3rem);
-        color: v.$color-primary-fallback;
-      }
-    }
-  }
-
-  &__desc {
-    font-size: clamp(1rem, 1.2vw, 1.25rem);
-    line-height: 1.5;
-    text-align: justify;
-    margin: 0;
-  }
-
-  &__number {
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-    line-height: 1;
-    text-transform: uppercase;
-    color: v.$color-secondary-fallback;
-
-    @supports (display: grid) {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      user-select: none;
-
-      @include m.respond-to-max(lg) {
-        writing-mode: horizontal-tb;
-        text-orientation: initial;
-      }
-    }
-  }
-
-  &__date {
-    font-family: v.$font-primary;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    line-height: 1;
-
-    &-day {
-      font-size: clamp(5rem, 5vw, 6rem);
-      font-weight: bold;
-      color: v.$color-primary-fallback;
-    }
-    &-month {
-      font-size: clamp(1.5rem, 1.75vw, 2rem);
-      font-weight: bold;
-      letter-spacing: 0.1em;
-      color: v.$color-primary-fallback;
-    }
-    &-year {
-      font-size: clamp(1.25rem, 1.5vw, 2rem);
-      color: v.$color-secondary-fallback;
-    }
-  }
-
-  &__place {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-    gap: 0.5rem;
-
-    &-line {
+    &__desc {
       font-size: clamp(1rem, 1.2vw, 1.25rem);
+      line-height: 1.5;
+      text-align: justify;
+      margin: 0;
+    }
+
+    &__number {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      line-height: 1;
+      text-transform: uppercase;
       color: v.$color-secondary-fallback;
 
-      &--accent {
-        font-size: clamp(1.25rem, 1.5vw, 2rem);
-        font-weight: bold;
-        text-transform: uppercase;
-        color: v.$color-primary-fallback;
+      @supports (display: grid) {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        user-select: none;
+
+        @include m.respond-to-max(lg) {
+          writing-mode: horizontal-tb;
+          text-orientation: initial;
+        }
       }
     }
-  }
 
-  &__cta {
-    display: inline-block;
-    padding: v.$spacing-sm v.$spacing-md;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    &__date {
+      font-family: v.$font-primary;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      line-height: 1;
+
+      &-day {
+        font-size: clamp(5rem, 5vw, 6rem);
+        font-weight: bold;
+        color: v.$color-primary-fallback;
+      }
+      &-month {
+        font-size: clamp(1.5rem, 1.75vw, 2rem);
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        color: v.$color-primary-fallback;
+      }
+      &-year {
+        font-size: clamp(1.25rem, 1.5vw, 2rem);
+        color: v.$color-secondary-fallback;
+      }
+    }
+
+    &__place {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      gap: 0.5rem;
+
+      &-line {
+        font-size: clamp(1rem, 1.2vw, 1.25rem);
+        color: v.$color-secondary-fallback;
+
+        &--accent {
+          font-size: clamp(1.25rem, 1.5vw, 2rem);
+          font-weight: bold;
+          text-transform: uppercase;
+          color: v.$color-primary-fallback;
+        }
+      }
+    }
+
+    &__cta {
+      display: inline-block;
+      padding: v.$spacing-sm v.$spacing-md;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
   }
 }

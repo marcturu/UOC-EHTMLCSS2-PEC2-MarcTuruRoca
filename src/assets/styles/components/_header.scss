@@ -8,13 +8,27 @@
     -webkit-backdrop-filter: blur(12px); // Safari fallback
 
     .nav-link {
+      color: v.$color-secondary-fallback;
+
       &.active {
         font-weight: 700;
+      }
+
+      &:hover {
+        color: v.$color-primary-fallback;
       }
     }
   }
 
-  .header-logo {
+  .dropdown-item {
+    color: v.$color-secondary-fallback;
+
+    &:hover {
+      color: v.$color-primary-fallback;
+    }
+  }
+
+  .header__logo {
     display: block;
     height: 4.5rem;
     width: auto;

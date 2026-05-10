@@ -1,3 +1,5 @@
+@use "layers";
+
 /* Settings */
 @use "settings/fonts";
 @use "settings/variables" as *;
@@ -25,10 +27,7 @@
 
 @use "components/cards";
 
-@use "components/hero-blog";
-@use "components/intro-blog";
-@use "components/list-blog";
-@use "components/final-blog";
+@use "components/blog";
 
 /* Utilities */
 @use "utilities/helpers";
