@@ -1,4 +1,5 @@
-@use '../settings/variables' as v;
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
 
 @layer objects {
   .o-section {

@@ -1,5 +1,5 @@
-@use "../settings/variables" as v;
-@use "../tools/functions" as f;
+@use "../../settings/variables" as v;
+@use "../../tools/functions" as f;
 
 @layer components {
   .navbar {

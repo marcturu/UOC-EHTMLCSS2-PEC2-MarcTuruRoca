@@ -1,7 +1,7 @@
 @use "../settings/variables" as v;
 
 @layer utilities {
-  .u-hidden {
+  .u-visually-hidden {
     display: none !important;
   }
 
