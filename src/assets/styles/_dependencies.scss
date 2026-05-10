@@ -1,5 +1,7 @@
 
 @import "npm:@fortawesome/fontawesome-free/css/all.css";
 
-@import "settings/bootstrap-overrides";
-@import "bootstrap/scss/bootstrap";
+@layer bootstrap {
+  @import "settings/bootstrap-overrides";
+  @import "bootstrap/scss/bootstrap";
+}

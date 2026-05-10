@@ -19,7 +19,7 @@
       "source": [
         "src/index.html",
         "src/speakers.html",
-        "src/article.html"
+        "src/blog.html"
       ],
       "engines": {
         "browsers": "last 2 versions, > 0.5%, not dead"
