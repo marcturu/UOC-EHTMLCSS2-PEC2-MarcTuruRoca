@@ -311,6 +311,10 @@
           text-shadow: 1px 1px 10px f.color-alpha(v.$color-dark-fallback, 0.5);
           color: v.$color-primary-fallback;
           font-weight: bold;
+
+          @include m.respond-to-max(lg) {
+            text-shadow: 1px 1px 5px f.color-alpha(v.$color-dark-fallback, 0.25);
+          }
         }
 
         &--complementary {
