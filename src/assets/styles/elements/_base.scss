@@ -22,16 +22,6 @@
     font-family: v.$font-primary;
   }
 
-  a:not(:where(.nav-link, .dropdown-item, .btn)) {
-    color: v.$color-light-fallback;
-    transition: color 0.25s ease;
-
-    &:hover {
-      //color: white;
-      color: v.$color-primary-fallback;
-    }
-  }
-
   .btn-primary {
     color: v.$color-light-fallback;
   }

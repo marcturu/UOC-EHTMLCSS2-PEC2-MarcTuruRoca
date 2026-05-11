@@ -2,38 +2,24 @@
 @use "../../tools/functions" as f;
 
 @layer components {
-  .navbar {
-    background-color: f.color-alpha(v.$color-light-fallback, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); // Safari fallback
 
-    .nav-link {
-      color: v.$color-secondary-fallback;
-
-      &.active {
-        font-weight: 700;
-      }
-
-      &:hover {
-        color: v.$color-primary-fallback;
-      }
+  .header {
+    
+    &__nav {
+      background-color: f.color-alpha(v.$color-light-fallback, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); // Safari fallback
     }
-  }
 
-  .dropdown-item {
-    color: v.$color-secondary-fallback;
-
-    &:hover {
-      color: v.$color-primary-fallback;
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-  }
 
-  .header__logo {
-    display: block;
-    height: 4.5rem;
-    width: auto;
-    max-width: none;
-    object-fit: contain;
-    image-rendering: auto;
+    &__logo {
+      height: 4.5rem;
+      width: auto;
+    }
   }
 }
