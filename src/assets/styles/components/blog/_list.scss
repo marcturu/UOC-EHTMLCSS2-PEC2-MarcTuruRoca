@@ -29,7 +29,7 @@
         align-items: flex-start;
       }
 
-      @container article-list (max-width: 500px) {
+      @container article-list (max-width: 992px) {
         gap: v.$spacing-sm;
       }
 
@@ -47,7 +47,7 @@
       flex-shrink: 0;
       width: 3rem;
 
-      @container article-list (max-width: 500px) {
+      @container article-list (max-width: 992px) {
         font-size: 2rem;
         width: auto;
       }
