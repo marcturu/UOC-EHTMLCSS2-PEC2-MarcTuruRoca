@@ -1,0 +1,8 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+
+@layer objects {
+  .o-section {
+    padding-block: v.$header-height;
+  }
+}

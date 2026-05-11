@@ -1,0 +1,42 @@
+@use "../../settings/variables" as v;
+@use "../../tools/functions" as f;
+
+@layer article-components {
+  .article {
+
+    &__blockquote {
+      container-type: inline-size;
+      container-name: article-quote;
+      border-left: 4px solid v.$color-primary-fallback;
+      padding: v.$spacing-sm v.$spacing-md;
+      background-color: f.color-alpha(v.$color-primary-fallback, 0.05);
+      border-radius: 0 0.5rem 0.5rem 0;
+      
+      p {
+        font-size: clamp(1rem, 3cqw, 1.35rem);
+        font-style: italic;
+        font-weight: 500;
+        margin-bottom: 0;
+
+        @container article-quote (max-width: 400px) {
+          font-size: clamp(0.9rem, 5cqw, 1.1rem);
+        }
+      }
+
+      cite {
+        font-size: 0.85rem;
+        color: v.$color-primary-fallback;
+        font-weight: 600;
+      }
+
+      &--secondary {
+        border-left-color: v.$color-accent-fallback;
+        background-color: f.color-alpha(v.$color-accent-fallback, 0.05);
+
+        cite {
+          color: v.$color-accent-fallback;
+        }
+      }
+    }
+  }
+}

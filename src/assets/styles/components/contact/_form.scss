@@ -1,0 +1,125 @@
+@use "../../settings/variables" as v;
+@use "../../tools/functions" as f;
+
+@layer contact-components {
+  .contact-form {
+    container-type: inline-size;
+    container-name: contact-form;
+
+    &__group {
+      @container contact-form (max-width: 400px) {
+        margin-bottom: clamp(0.75rem, 3cqw, 1rem) !important;
+      }
+    }
+
+    &__label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: v.$spacing-xs;
+      color: v.$color-secondary-fallback;
+
+      @supports (color: oklch(30% 0.03 260)) {
+        color: v.$color-secondary;
+      }
+    }
+
+    &__required {
+      color: v.$color-primary-fallback;
+      margin-left: v.$spacing-xs;
+
+      @supports (color: oklch(62% 0.15 50)) {
+        color: v.$color-primary;
+      }
+    }
+
+    &__hint {
+      font-size: 0.75rem;
+      color: v.$color-secondary-fallback;
+      opacity: 0.75;
+      margin-top: v.$spacing-xs;
+
+      @supports (color: oklch(30% 0.03 260)) {
+        color: v.$color-secondary;
+      }
+    }
+
+    &__input,
+    &__select,
+    &__textarea {
+      border-color: v.$color-border-fallback;
+      color: v.$color-secondary-fallback;
+      background-color: v.$color-light-fallback;
+      font-family: v.$font-secondary;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      @supports (color: oklch(90% 0.02 90)) {
+        border-color: v.$color-border;
+        color: v.$color-secondary;
+        background-color: v.$color-light;
+      }
+
+      &:focus {
+        border-color: v.$color-primary-fallback;
+        box-shadow: 0 0 3px f.color-alpha(v.$color-primary-fallback, 0.2);
+
+        @supports (color: oklch(62% 0.15 50)) {
+          border-color: v.$color-primary;
+        }
+
+        @supports (color: color(display-p3 0 0 0)) {
+          box-shadow: 0 0 0 3px color(display-p3 0.75 0.45 0.20 / 0.25);
+        }
+      }
+
+      &::placeholder {
+        color: v.$color-secondary-fallback;
+        opacity: 0.35;
+      }
+    }
+
+    &__textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    &__check {
+      &:checked {
+        background-color: v.$color-primary-fallback;
+        border-color: v.$color-primary-fallback;
+
+        @supports (color: oklch(62% 0.15 50)) {
+          background-color: v.$color-primary;
+          border-color: v.$color-primary;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px f.color-alpha(v.$color-primary-fallback, 0.25);
+      }
+    }
+
+    &__check-label {
+      font-size: 0.875rem;
+      color: v.$color-secondary-fallback;
+
+      a {
+        color: v.$color-primary-fallback;
+
+        @supports (color: oklch(62% 0.15 50)) {
+          color: v.$color-primary !important;
+        }
+      }
+    }
+
+    &__submit {
+      width: 100%;
+      padding: v.$spacing-sm v.$spacing-md;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      
+      @container contact-form (min-width: 400px) {
+        width: auto;
+      }
+    }
+  }
+}

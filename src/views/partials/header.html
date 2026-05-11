@@ -1,3 +1,63 @@
-<header class="uoc-footer">
-  Hi
+<header class="header">
+  <nav class="navbar navbar-expand-lg border-bottom fixed-top header__nav">
+    <div class="header__container o-container">
+      <a class="header__brand navbar-brand" href="/index" aria-label="Asociación Cultural Materia">
+        <img
+          src="./assets/images/ACMateria.png?width=130&as=webp"
+          srcset="
+            ./assets/images/ACMateria.png?width=130&as=webp 1x,
+            ./assets/images/ACMateria.png?width=260&as=webp 2x,
+            ./assets/images/ACMateria.png?width=390&as=webp 3x
+          "
+          alt="Asociación Cultural Materia logo"
+          class="header__logo"
+          width="130"
+          height="72"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Abrir menú de navegación"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse header__collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link" href="/index">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/speakers" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              Ponentes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/speakers#marc">Marc</a></li>
+              <li><a class="dropdown-item" href="/speakers#cesar">César</a></li>
+              <li><a class="dropdown-item" href="/speakers#ana">Ana</a></li>
+              <li><a class="dropdown-item" href="/speakers#julian">Julián</a></li>
+              <li><a class="dropdown-item" href="/speakers#maria">María</a></li>
+              <li><a class="dropdown-item" href="/speakers#rick">Rick</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/speakers">Consultar todos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

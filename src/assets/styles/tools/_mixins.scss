@@ -1,0 +1,26 @@
+@use "../settings/variables" as v;
+
+/* Repsonsive breakpoints (bp) */
+@mixin respond-to($bp) {
+  @if $bp == sm {
+    @media (min-width: v.$bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (min-width: v.$bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: v.$bp-lg) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: v.$bp-xl) { @content; }
+  }
+}
+
+@mixin respond-to-max($bp) {
+  @if $bp == xl {
+    @media (max-width: v.$bp-xl) { @content; }
+  } @else if $bp == lg {
+    @media (max-width: v.$bp-lg) { @content; }
+  } @else if $bp == md {
+    @media (max-width: v.$bp-md) { @content; }
+  } @else if $bp == sm {
+    @media (max-width: v.$bp-sm) { @content; }
+  }
+}

@@ -1,0 +1,42 @@
+@use "../settings/variables" as v;
+@use "../tools/functions" as f;
+
+/* ----- Bootstrap general overrides ----- */
+$theme-colors: (
+  "primary": v.$color-primary-fallback,
+  "secondary": v.$color-secondary-fallback,
+  "light": v.$color-light-fallback,
+  "dark": v.$color-dark-fallback
+);
+$font-family-base: v.$font-secondary;
+$font-family-headings: v.$font-primary;
+
+/* ----- Bootstrap Link overrides ----- */
+$link-color: v.$color-light-fallback;
+$link-hover-color: v.$color-primary-fallback;
+
+/* ----- Bootstrap Button overrides ----- */
+$btn-border-radius: v.$spacing-xs;
+
+/* ----- Bootstrap Navbar overrides ----- */
+$navbar-nav-link-padding-x: v.$spacing-sm;
+$navbar-light-color: v.$color-secondary-fallback;
+$navbar-light-hover-color:  v.$color-primary-fallback;
+$navbar-light-active-color: v.$color-primary-fallback;
+
+/* ----- Bootstrap Dropdown overrides ----- */
+$dropdown-link-color: v.$color-secondary-fallback;
+$dropdown-link-hover-color:  v.$color-primary-fallback;
+
+/* ----- Bootstrap Card overrides ----- */
+$card-title-color: v.$color-secondary-fallback;
+$card-subtitle-color: v.$color-primary-fallback;
+$card-border-color: v.$color-border-fallback;
+$card-border-radius: 0;
+$card-border-width: 0;
+
+/* ----- Bootstrap Form overrides ----- */
+$input-border-radius: v.$spacing-xs;
+$input-line-height: 1;
+$form-select-padding-y: v.$spacing-xs;
+$form-select-border-radius: v.$spacing-xs;

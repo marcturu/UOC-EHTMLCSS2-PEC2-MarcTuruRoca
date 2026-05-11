@@ -1,0 +1,44 @@
+@use "../../settings/variables" as v;
+@use "../../tools/mixins" as m;
+
+@layer contact-base {
+  .contact-section {
+    min-height: auto; //fallback
+    min-height: 80lvh; //modern
+
+    &__layout {
+      display: flex;
+      flex-direction: column;
+      gap: v.$spacing-lg;
+
+      @include m.respond-to(lg) {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    &__info {
+      flex: 0 0 auto;
+
+      @include m.respond-to(lg) {
+        flex: 0 0 380px;
+      }
+    }
+
+    &__form-wrapper {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 2vw, 2.5rem);
+      font-weight: 700;
+      color: v.$color-secondary-fallback;
+      margin-bottom: v.$spacing-md;
+
+      @supports (color: oklch(30% 0.03 260)) {
+        color: v.$color-secondary;
+      }
+    }
+  }
+}
