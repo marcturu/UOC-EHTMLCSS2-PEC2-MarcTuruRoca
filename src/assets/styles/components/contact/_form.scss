@@ -48,14 +48,13 @@
     &__textarea {
       border-color: v.$color-border-fallback;
       color: v.$color-secondary-fallback;
-      background-color: v.$color-light-fallback;
+      background-color: white;
       font-family: v.$font-secondary;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
       @supports (color: oklch(90% 0.02 90)) {
         border-color: v.$color-border;
         color: v.$color-secondary;
-        background-color: v.$color-light;
       }
 
       &:focus {

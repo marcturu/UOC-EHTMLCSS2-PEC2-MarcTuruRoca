@@ -17,7 +17,7 @@
     padding: v.$spacing-sm;
     border: 1px solid v.$color-border-fallback;
     border-radius: v.$spacing-xs;
-    background-color: v.$color-light-fallback;
+    background-color: white;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     @supports (color: oklch(90% 0.02 90)) {
