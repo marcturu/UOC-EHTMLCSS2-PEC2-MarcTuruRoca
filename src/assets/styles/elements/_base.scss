@@ -1,40 +1,47 @@
 @use "../settings/variables" as v;
 
-html {
-  scroll-padding-top: v.$header-height;
-}
-
-body {
-  font-family: v.$font-secondary;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: v.$color-dark-fallback;
-  background-color: v.$color-light-fallback;
-  min-height: 100vh;
-}
-
-main {
-  padding-top: v.$header-height;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: v.$font-primary;
-}
-
-a:not(.nav-link):not(.dropdown-item) {
-  color: v.$color-light-fallback;
-  transition: color 0.25s ease;
-
-  &:hover {
-    color: white;
+@layer base {
+  html {
+    scroll-padding-top: v.$header-height;
   }
-}
 
-button {
-  color: v.$color-light-fallback;
-  transition: color 0.25s ease;
+  body {
+    font-family: v.$font-secondary;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: v.$color-dark-fallback;
+    background-color: v.$color-light-fallback;
+    min-height: 100vh;
+  }
 
-  &:hover {
-    color: white;
+  main {
+    padding-top: v.$header-height;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: v.$font-primary;
+  }
+
+  a:not(:where(.nav-link, .dropdown-item, .btn)) {
+    color: v.$color-light-fallback;
+    transition: color 0.25s ease;
+
+    &:hover {
+      //color: white;
+      color: v.$color-primary-fallback;
+    }
+  }
+
+  .btn-primary {
+    color: v.$color-light-fallback;
+  }
+
+  button {
+    color: v.$color-light-fallback;
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: white;
+    }
   }
 }

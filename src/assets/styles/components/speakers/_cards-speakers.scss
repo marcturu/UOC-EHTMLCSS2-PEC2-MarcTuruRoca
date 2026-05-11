@@ -23,6 +23,8 @@
     &__item {
       flex: 0 0 calc(33.333% - v.$spacing-md);
       max-width: calc(33.333% - v.$spacing-md);
+      container-type: inline-size;
+      container-name: speaker-card;
 
       @include m.respond-to-max(lg) {
         flex: 1 1 280px;
@@ -77,20 +79,20 @@
     }
 
     &__body {
-      padding: v.$spacing-md;
+      padding: min(8cqw, v.$spacing-md);
       flex: 1;
 
       &--back {
         display: flex;
         flex-direction: column;
-        gap: v.$spacing-sm;
+        gap: clamp(v.$spacing-xs, 2cqw, v.$spacing-sm);
         padding: v.$spacing-md;
         color: v.$color-light-fallback;
       }
     }
 
     &__name {
-      font-size: 2.25rem;
+      font-size: clamp(1.5rem, 7cqw, 2.25rem);
       letter-spacing: 0.02em;
       font-weight: 700;
       margin: 0;
@@ -101,9 +103,9 @@
     }
 
     &__role {
-      font-size: 0.9rem;
+      font-size: clamp(0.75rem, 2.5cqw, 0.9rem);
       text-shadow: 1px 1px 5px f.color-alpha(v.$color-primary-fallback, 0.5);
-      margin-top: 0;
+      margin-top: v.$spacing-xs;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
@@ -117,12 +119,31 @@
 
     &__links {
       display: flex;
-      gap: v.$spacing-sm;
+      gap: clamp(v.$spacing-xs, 4cqw, v.$spacing-sm);
       padding: 0;
       margin-top: auto;
 
       i {
         font-size: 1.4rem;
+      }
+    }
+
+    @container speaker-card (max-width: 320px) {
+      height: 380px;
+
+      .speakers-card__img {
+        height: 200px;
+      }
+
+      .speakers-card__bio {
+        line-height: 1.45;
+      }
+    }
+
+    @container speaker-card (max-width: 500px) {
+      
+      .speakers-card__name {
+        font-size: clamp(2rem, 5cqw, 2.5rem);
       }
     }
   }

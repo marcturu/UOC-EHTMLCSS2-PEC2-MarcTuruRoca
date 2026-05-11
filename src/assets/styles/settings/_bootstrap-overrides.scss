@@ -24,3 +24,6 @@ $card-border-color: v.$color-border-fallback;
 
 /* ----- Bootstrap form overrides ----- */
 $input-border-radius: v.$spacing-xs;
+$input-line-height: 1;
+$form-select-padding-y: v.$spacing-xs;
+$form-select-border-radius: v.$spacing-xs;
