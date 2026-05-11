@@ -1,5 +1,6 @@
 @use "../../settings/variables" as v;
 @use "../../tools/functions" as f;
+@use "../../tools/mixins" as m;
 
 @layer components {
 
@@ -15,11 +16,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @include m.respond-to-max(lg) { 
+        gap: v.$spacing-md;
+      }
     }
 
     &__logo {
       height: 4.5rem;
       width: auto;
+    }
+
+    @include m.respond-to-max(lg) {
+
+      &__container:has(.header__collapse.show) &__brand {
+        display: none;
+      }
     }
   }
 }
