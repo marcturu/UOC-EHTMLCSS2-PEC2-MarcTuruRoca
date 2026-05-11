@@ -10,7 +10,7 @@ Creado por Jordi Tarrida (jorditarrida@uoc.edu).
 - **Portada** - Póster de bienvenida con información esencial sobre las jornadas.
 - **Ponentes** - Tarjetas con los ponentes que participaran en las jornadas.
 - **Blog** - Artículo con información variada sobre las jornadas y lo que las envuelve.
-- *Contacto** - Información de localización de las jornadas y contacto con la asociación.
+- **Contacto** - Información de localización de las jornadas y contacto con la asociación.
 
 ### Metodología
 
@@ -56,10 +56,12 @@ Creado por Jordi Tarrida (jorditarrida@uoc.edu).
 ### Carcaterísticas
 El proyecto incorpora funcionalidades modernas de CSS y técnicas avanzadas de maquetación para mejorar la escalabilidad, el rendimiento y la adaptabilidad del diseño.
 
+#### Cascade  arquitectura CSS
+- `@layer` → sistema de capas CSS que permite controlar la prioridad de estilos de forma explícita.
 #### Condicionales y consultas CSS modernas
 - `@supports` → detecciónn de soporte de propiedades CSS antes de aplicarlas.
 - `@container` → estilos basados en el tamaño del contenedor, no del viewport.
-- `@is, @where, @has` → refinamiento de selectores y lógica condicional avanzada en CSS.
+- `:is(), :where(), :has()` → refinamiento de selectores y lógica condicional avanzada en CSS.
 #### Unidades de viewport modernas
 - `dvh, svh,...` → unidades dinámicas de altura del viewport, adaptadas a cambios en navegadores móviles.
 - `cqw, cqh,...` → unidades relativas al tamaño del contenedor (Container Query Units).
