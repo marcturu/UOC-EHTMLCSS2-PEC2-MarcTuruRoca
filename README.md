@@ -7,10 +7,10 @@ Creado por Jordi Tarrida (jorditarrida@uoc.edu).
 
 ### Páginas
 
-- **Portada** - ?
-- **Ponentes** - ?
-- **Blog** - ?
-- **???** - ?
+- **Portada** - Póster de bienvenida con información esencial sobre las jornadas.
+- **Ponentes** - Tarjetas con los ponentes que participaran en las jornadas.
+- **Blog** - Artículo con información variada sobre las jornadas y lo que las envuelve.
+- *Contacto** - Información de localización de las jornadas y contacto con la asociación.
 
 ### Metodología
 
@@ -54,13 +54,21 @@ Creado por Jordi Tarrida (jorditarrida@uoc.edu).
 | [Font Awesome](https://fontawesome.com/) | Iconos `"@fortawesome/fontawesome-free": "^7.2.0"` |
 
 ### Carcaterísticas
-- @is | @where | @has
-- @supports
-- @container
-- cqw, cqh,...
-- dvh, svh,...
-- oklch, display-p3
-- CSS Flex y Grid
+El proyecto incorpora funcionalidades modernas de CSS y técnicas avanzadas de maquetación para mejorar la escalabilidad, el rendimiento y la adaptabilidad del diseño.
+
+#### Condicionales y consultas CSS modernas
+- `@supports` → detecciónn de soporte de propiedades CSS antes de aplicarlas.
+- `@container` → estilos basados en el tamaño del contenedor, no del viewport.
+- `@is, @where, @has` → refinamiento de selectores y lógica condicional avanzada en CSS.
+#### Unidades de viewport modernas
+- `dvh, svh,...` → unidades dinámicas de altura del viewport, adaptadas a cambios en navegadores móviles.
+- `cqw, cqh,...` → unidades relativas al tamaño del contenedor (Container Query Units).
+#### Sistema de color avanzado
+- `oklch` → modelo de color perceptualmente uniforme para emjorar consistencia visual.
+- `display-p3` → soporte para gamas de color ampliadas en pantallas compatibles.
+#### Layout moderno
+- `CSS Flex` → sistema de disposición unidimensional flexible.
+- `CSS Grid` → sistema de layout bidimensional para estructuras complejas.
 
 ## Comandos
 
@@ -77,35 +85,50 @@ Creado por Jordi Tarrida (jorditarrida@uoc.edu).
 ```
 src/
 ├── index.html
-├── article.html
+├── blog.html
 ├── speakers.html
-├── ???.html
-├── views/                  # Parciales PostHTML
-│   ├── header.html
-│   ├── hero.html
-│   ├── about.html
-│   ├── locations.html
-│   ├── map.html
-│   ├── gallery.html
-│   ├── visit.html
-│   └── footer.html
+├── contact.html
+├── views/ 
+│   ├── partials/               # Parciales PostHTML
+│   │   ├── header.html          
+│   │   └── footer.html
+│   ├── home/
+│   │   └── hero.html
+│   ├── speakers/
+│   │   └── cards.html
+│   ├── blog/
+│   │   ├── hero.html    
+│   │   ├── intro.html  
+│   │   ├── list.html    
+│   │   └── final.html
+│   └── contact/
+│       ├── hero.html    
+│       ├── section.html  
+│       ├── cards.html  
+│       ├── form.html    
+│       └── map.html
 ├── assets/
-│   ├── fonts/              # Fuentes autoalojadas (Unbounded, DM Sans)
-│   ├── images/             # Imágenes optimizadas en WebP
-│   ├── videos/             # Vídeo del hero (MP4)
+│   ├── fonts/                  # Fuentes autoalojadas (League Gothic, DM Sans)
+│   ├── images/                 # Imágenes optimizadas en WebP
 │   ├── scripts/
 │   │   ├── main.js
-│   │   └── modules/        # Módulos JS (lenis, aos, swiper, leaflet, header)
+│   │   └── modules/            # Módulos JS (aos, header)
 │   └── styles/
 │       ├── main.scss
+│       ├── layers.scss
 │       ├── _dependencies.scss
-│       ├── settings/       # Variables, fuentes
-│       ├── tools/          # Funciones, mixins
-│       ├── generic/        # Reset
-│       ├── elements/       # Estilos base
-│       ├── objects/        # Objetos OOCSS
-│       ├── components/     # Componentes BEM
-│       └── utilities/      # Clases de utilidad
+│       ├── settings/           # Variables, fuentes, bootstrap overrides
+│       ├── tools/              # Funciones, mixins
+│       ├── generic/            # Reset
+│       ├── elements/           # Estilos base
+│       ├── objects/            # Objetos OOCSS
+│       ├── components/ 
+│       │   ├── partials/
+│       │   ├── home/
+│       │   ├── speakers/ 
+│       │   ├── blog/
+│       │   └── contact/                    
+│       └── utilities/          # Clases de utilidad
 ```
 
 ## Despliegue
