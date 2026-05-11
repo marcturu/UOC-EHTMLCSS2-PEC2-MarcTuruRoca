@@ -1,15 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  const normalizePath = (path) => {
+    path = path.replace(/\/$/, '');
+
+    if (path === '' || path === '/index') {
+      return '/';
+    }
+
+    return path;
+  };
+
   const links = document.querySelectorAll('.nav-link');
-  const currentPath = window.location.pathname.replace(/\/$/, '');
+
+  const currentPath = normalizePath(window.location.pathname);
 
   links.forEach(link => {
+
     const href = link.getAttribute('href');
 
     if (!href || href === '#') return;
 
-    const linkPath = new URL(link.href, window.location.origin)
-      .pathname
-      .replace(/\/$/, '');
+    const linkPath = normalizePath(
+      new URL(link.href, window.location.origin).pathname
+    );
 
     if (linkPath === currentPath) {
       link.classList.add('active');
@@ -17,5 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  console.log("CURRENT:", currentPath);
+  console.log('CURRENT:', currentPath);
 });
