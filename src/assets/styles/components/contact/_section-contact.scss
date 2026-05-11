@@ -4,7 +4,10 @@
 @layer contact-base {
   .contact-section {
     min-height: auto; //fallback
-    min-height: 80lvh; //modern
+
+    @supports (height: 80lvh) {
+      min-height: 80lvh; //modern
+    }
 
     &__layout {
       display: flex;
