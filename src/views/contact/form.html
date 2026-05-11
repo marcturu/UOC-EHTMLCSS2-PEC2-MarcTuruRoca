@@ -2,7 +2,7 @@
   <h2 class="contact-section__title">Envíanos un mensaje</h2>
   <form 
     class="contact-form"
-    name="contact
+    name="contact"
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
@@ -13,7 +13,7 @@
     <p class="u-visually-hidden">
       <label>
         No rellenes este campo si eres humano:
-        <input name="bot-field" tabnidex="-1" autocomplete="off" />
+        <input name="bot-field" tabindex="-1" autocomplete="off" />
       </label>
     </p>
     <input type="hidden" name="form-name" value="contact" />
@@ -25,10 +25,12 @@
       </label>
       <input 
         type="text"
-        id="contact-name" 
+        id="contact-name"
+        name="name"
         class="contact-form__input form-control"
         placeholder="Marc Turu Roca"
-        requiredautocomplete="name"
+        required
+        autocomplete="name"
         aria-required="true"
         aria-describedby="name-hint"
       />
@@ -43,7 +45,7 @@
         <span class="u-visually-hidden">(obligatorio)</span>
       </label>
       <input 
-        type="text" 
+        type="email" 
         id="contact-email"
         name="email"
         class="contact-form__input form-control"
@@ -111,7 +113,7 @@
           <a href="/links" class="link-primary link-opacity-60-hover" target="_blank" rel="noopener noreferrer">
             política de privacidad
           </a>
-          <span class="contact-form__required aria-hidden=true">*</span>
+          <span class="contact-form__required" aria-hidden="true">*</span>
         </label>
       </div>
       <div id="rgpd-desc" class="contact-form__hint form-text">
@@ -121,7 +123,7 @@
 
     <button type="submit" class="btn btn-primary contact-form__submit">
       Envía el mensaje
-      <i class="fa-solid-fa-paper-plane" aria-hidden="true"></i>
+      <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
     </button>
   </form>
 </div>
