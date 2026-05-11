@@ -21,6 +21,8 @@ $btn-border-radius: v.$spacing-xs;
 $card-title-color: v.$color-secondary-fallback;
 $card-subtitle-color: v.$color-primary-fallback;
 $card-border-color: v.$color-border-fallback;
+$card-border-radius: 0;
+$card-border-width: 0;
 
 /* ----- Bootstrap form overrides ----- */
 $input-border-radius: v.$spacing-xs;

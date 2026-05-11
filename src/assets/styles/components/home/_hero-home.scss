@@ -7,7 +7,7 @@
     min-height: 100svh;
 
     &__grid {
-      // Fallback for browsers that don't support grid
+      // Fallback for browsers that don't support grid (structure)
       display: flex;
       flex-wrap: wrap;
       gap: v.$spacing-md;
@@ -16,12 +16,13 @@
 
       > .hero__item {
         flex: 1 1 400px;
-        min-height: 200px;
+        min-height: 100px;
       }
 
+      // Modern grid (structure)
       @supports (display: grid) {
         display: grid;
-        height: 100%;
+        min-height: 100%;
         grid-template-rows: 0.5fr 0.25fr 0.5fr 0.5fr 0.5fr;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
         grid-gap: 15px;
@@ -49,34 +50,178 @@
       background-color: v.$color-light-fallback;
       color: v.$color-secondary-fallback;
 
+      // Fallback for browsers that don't support grid (elements)
+      &--large {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &--medium,
+      &--mediumdesc,
+      &--broad,
+      &--wide,
+      &--small,
+      &--skiny,
+      &--spacer {
+        padding: v.$spacing-xs;
+      }
+
       &--skiny {
-        grid-row: span 5;
-        grid-column: span 1;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: v.$spacing-sm;
-        background-color: white;
-
-        @include m.respond-to-max(lg) {
-          background-color: v.$color-light-fallback;
-          grid-column: span 2;
-        }
-
-        @include m.respond-to-max(md) {
-          grid-row: span 1;
-          grid-column: auto;
-          background-color: white;
-        }
 
         &::before {
           content: "";
           display: block;
-          background-color: v.$color-secondary-fallback;
           width: 15rem;
           height: 1.5px;
+          background-color: v.$color-secondary-fallback;
+        }
+      }
 
-          @supports (display: grid) {
+      &--broad,
+      &--wide,
+      &--small {
+        display: flex;
+        align-items: center;
+      }
+
+      &--wide {
+        justify-content: center;
+      }
+
+      &--broad {
+        justify-content: center;
+      }
+
+      &--spacer {
+        display: none;
+      }
+    }
+
+    // Modern grid (elements)
+    @supports (display: grid) {
+
+      &__item {
+
+        &--large {
+          grid-row: span 3;
+          grid-column: span 3;
+
+          @include m.respond-to-max(lg) {
+            grid-column: span 4;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-column: span 1;
+            grid-row: auto;
+          }
+        }
+
+        &--medium {
+          grid-row: span 2;
+          grid-column: span 2;
+          margin-left: -5.5rem;
+          padding: v.$spacing-xs v.$spacing-sm;
+          container-type: inline-size;
+          container-name: hero-title-block;
+
+          @include m.respond-to-max(lg) {
+            margin-left: 0;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-column: span 1;
+            grid-row: auto;
+          }
+        }
+
+        &--mediumdesc {
+          grid-row: span 2;
+          grid-column: span 2;
+          margin-top: -5rem;
+          padding: v.$spacing-xs v.$spacing-sm;
+          container-type: inline-size;
+          container-name: hero-desc-block;
+
+          @include m.respond-to-max(lg) {
+            margin-top: 0;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-column: span 1;
+            grid-row: auto;
+          }
+        }
+
+        &--small {
+          grid-row: span 1;
+          grid-column: span 1;
+
+          @include m.respond-to-max(md) {
+            justify-content: center;
+          }
+        }
+
+        &--broad {
+          grid-row: span 1;
+          grid-column: span 2;
+          text-align: justify;
+          padding-inline: v.$spacing-xs;
+          container-type: inline-size;
+          container-name: hero-place-block;
+
+          @include m.respond-to-max(lg) {
+            justify-content: flex-start;
+            grid-column: span 4;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-column: span 1;
+          }
+        }
+
+        &--wide {
+          grid-row: span 1;
+          grid-column: span 2;
+          //display: flex;
+          //align-items: center;
+          justify-content: flex-end;
+
+          @include m.respond-to-max(lg) {
+            grid-column: span 4;
+            justify-content: center;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-column: span 1;
+          }
+        }
+
+        &--skiny {
+          grid-row: span 5;
+          grid-column: span 1;
+          gap: v.$spacing-sm;
+          background-color: white;
+
+          @include m.respond-to-max(lg) {
+            background-color: v.$color-light-fallback;
+            grid-column: span 2;
+          }
+
+          @include m.respond-to-max(md) {
+            grid-row: span 1;
+            grid-column: auto;
+            background-color: white;
+          }
+
+          &::before {
             width: 1.5px;
             height: 15rem;
 
@@ -85,136 +230,25 @@
             }
           }
         }
-      }
 
-      &--small {
-        grid-row: span 1;
-        grid-column: span 1;
-
-        @include m.respond-to-max(md) {
+        &--spacer {
+          grid-row: span 1;
+          grid-column: span 3;
           display: flex;
           align-items: center;
-          justify-content: center;
-        }
-      }
 
-      &--medium {
-        grid-row: span 2;
-        grid-column: span 2;
-        margin-left: -5.5rem;
-        padding: v.$spacing-xs v.$spacing-sm;
-        container-type: inline-size;
-        container-name: hero-title-block;
+          @include m.respond-to-max(lg) {
+            grid-column: span 4;
+          }
 
-        @include m.respond-to-max(lg) {
-          margin-left: 0;
-        }
+          @include m.respond-to-max(md) {
+            display: none;
+          }
 
-        @include m.respond-to-max(md) {
-          grid-column: span 1;
-          grid-row: auto;
-        }
-      }
-
-      &--mediumdesc {
-        grid-row: span 2;
-        grid-column: span 2;
-        margin-top: -5rem;
-        padding: v.$spacing-xs v.$spacing-sm;
-        container-type: inline-size;
-        container-name: hero-desc-block;
-
-        @include m.respond-to-max(lg) {
-          margin-top: 0;
-        }
-
-        @include m.respond-to-max(md) {
-          grid-column: span 1;
-          grid-row: auto;
-        }
-      }
-
-      &--large {
-        grid-row: span 3;
-        grid-column: span 3;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-
-        @include m.respond-to-max(lg) {
-          grid-column: span 4;
-        }
-
-        @include m.respond-to-max(md) {
-          grid-column: span 1;
-          grid-row: auto;
-        }
-      }
-
-      &--broad {
-        grid-row: span 1;
-        grid-column: span 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-        padding-inline: v.$spacing-xs;
-        container-type: inline-size;
-        container-name: hero-place-block;
-
-        @include m.respond-to-max(lg) {
-          justify-content: flex-start;
-          grid-column: span 4;
-        }
-
-        @include m.respond-to-max(md) {
-          grid-column: span 1;
-        }
-      }
-
-      &--wide {
-        grid-row: span 1;
-        grid-column: span 2;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        @include m.respond-to-max(lg) {
-          grid-column: span 4;
-          justify-content: center;
-        }
-
-        @include m.respond-to-max(md) {
-          grid-column: span 1;
-        }
-      }
-
-      &--spacer {
-        grid-row: span 1;
-        grid-column: span 3;
-        display: flex;
-        align-items: center;
-
-        @include m.respond-to-max(lg) {
-          grid-column: span 4;
-        }
-
-        @include m.respond-to-max(md) {
-          display: none;
-        }
-
-        &::before {
-          content: "";
-          display: block;
-          background-color: v.$color-secondary-fallback;
-          width: 3px;
-          height: 100%;
-
-          @supports (display: grid) {
+          &::before {
+            content: "";
+            display: block;
+            background-color: v.$color-secondary-fallback;
             width: 100%;
             height: 3px;
           }
@@ -222,6 +256,7 @@
       }
     }
 
+    // Container queries
     @container hero-title-block (max-width: 400px) {
       .hero__title-line {
         font-size: clamp(2.5rem, 12cqw, 5rem);
@@ -253,6 +288,7 @@
       }
     }
 
+    // Eleemnt styles
     &__tag {
       font-size: clamp(0.75rem, 1vw, 1rem);
       letter-spacing: 0.2em;
