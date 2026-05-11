@@ -143,5 +143,5 @@ https://uoc-ehtmlcss2-pec2-marctururoca.netlify.app/
 
 ---
 
-Marc Turu Roca (https://github.com/marcturu/UOC-EHTMLCSS2-PEC2-MarcTuruRoca)
+Marc Turu Roca (https://github.com/marcturu/UOC-EHTMLCSS2-PEC2-MarcTuruRoca)  
 *UOC - PEC2 · Herramientas HTML y CSS II · 2025-2026*
