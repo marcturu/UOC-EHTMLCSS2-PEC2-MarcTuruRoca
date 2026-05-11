@@ -163,6 +163,8 @@
         &--small {
           grid-row: span 1;
           grid-column: span 1;
+          align-items: flex-start;
+          justify-content: flex-end;
 
           @include m.respond-to-max(md) {
             justify-content: center;
@@ -190,8 +192,6 @@
         &--wide {
           grid-row: span 1;
           grid-column: span 2;
-          //display: flex;
-          //align-items: center;
           justify-content: flex-end;
 
           @include m.respond-to-max(lg) {
