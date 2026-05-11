@@ -9,6 +9,11 @@
 
     &__section {
 
+      // :where() - bajo peso específico, fácil de sobreescribir
+      &:where(:not(.article__section--fullwidth)) {
+        padding-inline: 0;
+      }
+
       // :is() - aplica el mismo estilo a múltiples secciones sin repetir código
       &:is(.article__section--list, .article__section--reflection) {
         position: relative;
@@ -23,11 +28,6 @@
           width: v.$container-narrow-max-width;
           border-top: 3px solid v.$color-border-fallback;
         }
-      }
-
-      // :where() - bajo peso específico, fácil de sobreescribir
-      &:where(:not(.article__section--fullwidth)) {
-        padding-inline: 0;
       }
     }
 
