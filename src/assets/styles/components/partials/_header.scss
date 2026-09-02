@@ -12,9 +12,9 @@
       -webkit-backdrop-filter: blur(12px); // Safari fallback
 
       @include m.respond-to-max(lg) { 
-        background-color: f.color-alpha(v.$color-light-fallback, 0.975);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background-color: f.color-alpha(v.$color-light-fallback, 1);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
       }
     }
 
