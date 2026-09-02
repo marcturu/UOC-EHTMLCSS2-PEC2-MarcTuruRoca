@@ -71,6 +71,10 @@
           gap: v.$spacing-md;
           margin: 0;
           padding: 0;
+
+          @include m.respond-to-max(sm) {
+            gap: v.$spacing-xs;
+          }
         }
       }
 
@@ -79,6 +83,7 @@
         font-size: 0.9rem;
         line-height: 1.25;
         color: f.color-alpha(v.$color-light-fallback, 0.7);
+        padding-inline: v.$spacing-sm;
       }
     }
 
