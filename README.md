@@ -51,6 +51,11 @@ The project incorporates modern CSS functionality and advanced layout techniques
 - `CSS Flex` → flexible one-dimensional layout system.
 - `CSS Grid` → two-dimensional layout system for complex structures.
 
+#### Responsive image techniques
+- `Resolution switching (size)` → for images in `/`, `/speakers` and `/blog`.
+- `Resolution switching (dpi)` for the **header** and **footer** icon.
+- `Art direction` for the hero image in `/blog`.
+
 ---
 
 ## 🛠 Installation & Setup
@@ -202,5 +207,33 @@ src/
 
 ---
 
-## 📷 Screenshots 
+## 📷 Screenshots
 
+### Index (Desktop):
+![DesktopIndex](screenshots/Desktop_index.png)
+
+### Speakers (Desktop):
+![DesktopSpeakers](screenshots/Desktop_speakers.png)
+
+### Blog (Desktop):
+![DesktopBlog](screenshots/Desktop_blog.png)
+
+### Contact (Desktop):
+![DesktopContact](screenshots/Desktop_contact.png)
+-
+
+### Index (Mobile):
+![MobileIndex](screenshots/Mobile_index.png)
+
+### Speakers (Mobile):
+![MobileSpeakers](screenshots/Mobile_speakers.png)
+
+### Blog (Mobile):
+![MobileBlog](screenshots/Mobile_blog.png)
+
+### Contact (Mobile):
+![MobileContact](screenshots/Mobile_contact.png)
+-
+
+### Browsers that don't support CSS Grid (Desktop):
+![NoCSSGrid](screenshots/NoCSSGrid.png)
